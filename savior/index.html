@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Loli Savior</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <div id="game">
+    <canvas></canvas>
+      <div id="preview">
+        <div id="comics"></div>
+        <div id="continue"></div>
+      </div>
+
+    <script type="module">
+        import { InitCanvas } from "./canvas/canvas.js"
+        document.getElementById("continue").addEventListener("click",()=>{
+
+        const preview = document.getElementById("preview");
+        preview.remove();
+        const menu = document.createElement("div");
+        menu.id = "menu";
+        document.getElementById("game").append(menu)
+        menu.addEventListener("click", InitCanvas)
+
+
+        }) 
+       </script>
+
+
+
+  </div>
+    <script>
+      const openBackpack=()=>{
+        const backpack = document.getElementById("backpack");
+        if (backpack.classList.contains("hidden")){
+          backpack.classList.remove("hidden")
+        }else {
+          backpack.classList.add("hidden")
+
+        }
+
+      }
+    </script>
+
+  <div id="backpack" class="hidden"></div>
+  <div id="bottom_panel" class="hidden">
+    <div class="hidden" id="dialog"></div>
+    <div class="hidden" id="battle"></div>
+    <div class="backpackbutton" onclick="openBackpack()"></div>
+  </div>
+
+  
+</body>
+
+</html>
